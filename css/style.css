@@ -1,0 +1,384 @@
+/* ===========================================================
+   BITGRID CSS — Tema Futurista / Cripto / Web3 (V3 Atualizado)
+   Layout limpo, menu mobile com hamburger à direita
+=========================================================== */
+
+/* ===========================
+   VARIÁVEIS DO TEMA
+=========================== */
+:root {
+  --bg-dark: #0f1113;
+  --bg-dark-light: #161819;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+
+  --text-light: #e8e8e8;
+  --text-muted: #b5b5b5;
+
+  --neon-blue: #00ff7b;
+  --neon-blue-glow: 0 0 10px #00ff7b, 0 0 20px #00ff7b;
+  --neon-purple: #3a3f41;
+  --neon-pink: #6f7375;
+
+  --card-border: rgba(120, 120, 120, 0.35);
+}
+
+/* ===========================
+   RESET E BASE
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header {
+  background: #0b0d18;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between; /* logo à esquerda, menu à direita */
+  align-items: center;
+  position: relative;
+  padding-left: 0; /* logo colada à margem esquerda */
+}
+
+.logo {
+  width: 160px;
+  margin-left: 0; /* totalmente à esquerda */
+}
+
+/* ===========================
+   NAV MENU
+=========================== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--neon-blue);
+  text-shadow: var(--neon-blue-glow);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--neon-blue);
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===========================
+   HAMBURGER
+=========================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 10000;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--neon-blue);
+  border-radius: 4px;
+  box-shadow: var(--neon-blue-glow);
+  transition: 0.3s;
+}
+
+/* Hamburger animado em X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===========================
+   HERO / BANNER
+=========================== */
+.hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  box-shadow: none;
+}
+
+/* ===========================
+   BOTÃO PRINCIPAL / CTA
+=========================== */
+.btn-primary {
+  padding: 0.9rem 2rem;
+  display: inline-block;
+  background: var(--neon-blue);
+  border-radius: 12px;
+  font-weight: 700;
+  color: #0f1113;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00d4ff80;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #00d4ffcc;
+}
+
+.cta {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+/* ===========================
+   SEÇÕES
+=========================== */
+.section {
+  padding: 4rem 0;
+}
+
+.section.dark {
+  background: var(--bg-dark);
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+.section-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 950px;
+  margin: auto;
+  line-height: 1.65;
+}
+
+/* ===========================
+   CARDS DE RECURSOS
+=========================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.05);
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out, border-color 0.35s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+  border-color: var(--neon-blue);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 8px rgba(0, 255, 123, 0.6);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  font-size: 12px;
+  color: #e0e3e8;
+  line-height: 1.65;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.25px;
+}
+
+/* ===========================
+   TABELA DE PLANOS
+=========================== */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: #161819;
+  border: 2px solid var(--neon-blue);
+  border-radius: 12px;
+  table-layout: fixed;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--neon-blue);
+}
+
+.pricing-table th {
+  background: var(--neon-blue);
+  color: #0f1113;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pricing-table td {
+  background: #0f1113;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.pricing-table tr:hover td {
+  background: rgba(0, 255, 123, 0.1);
+  color: var(--neon-blue);
+}
+
+/* ===========================
+   CONTATO
+=========================== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-links img {
+  width: 65px;
+  transition: 0.3s;
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.social-links img:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 20px var(--neon-purple));
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: #0b0d18;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 900px) {
+  .header-content {
+    justify-content: space-between;
+    gap: 1rem;
+    padding-left: 0;
+  }
+
+  .logo {
+    order: 1;
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    order: 2;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    background: #0b0d18;
+    width: 75%;
+    height: 100vh;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    transition: right 0.4s ease-in-out;
+    z-index: 9999;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+}
+
+/* ===========================
+   RESPONSIVIDADE MÓVEL CARD
+=========================== */
+@media (max-width: 600px) {
+  .card h3 {
+    font-size: 1.25rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+}
