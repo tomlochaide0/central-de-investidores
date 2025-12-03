@@ -55,15 +55,15 @@ body {
 
 .header-content {
   display: flex;
-  justify-content: space-between; /* logo à esquerda, menu à direita */
+  justify-content: space-between;
   align-items: center;
   position: relative;
-  padding-left: 0; /* logo colada à margem esquerda */
+  padding-left: 0;
 }
 
 .logo {
   width: 160px;
-  margin-left: 0; /* totalmente à esquerda */
+  margin-left: 0;
 }
 
 /* ===========================
@@ -124,7 +124,6 @@ body {
   transition: 0.3s;
 }
 
-/* Hamburger animado em X */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -178,6 +177,7 @@ body {
 .cta {
   text-align: center;
   margin: 3rem 0;
+  padding: 0 2rem;
 }
 
 /* ===========================
@@ -199,13 +199,18 @@ body {
   text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
 }
 
+/* ===========================
+   SEÇÃO SOBRE / TEXTO PRINCIPAL
+=========================== */
 .section-text {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;      /* Desktop default */
   color: var(--text-light);
-  max-width: 950px;
-  margin: auto;
-  line-height: 1.65;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.7;
+  letter-spacing: 0.25px;
+  padding: 0 2rem;
 }
 
 /* ===========================
@@ -252,12 +257,13 @@ body {
 }
 
 .card p {
-  font-size: 12px;
+  font-size: 1rem;
   color: #e0e3e8;
   line-height: 1.65;
   margin-bottom: 0;
   text-align: center;
   letter-spacing: 0.25px;
+  padding: 0 0.5rem;
 }
 
 /* ===========================
@@ -333,7 +339,26 @@ body {
 /* ===========================
    RESPONSIVIDADE
 =========================== */
-@media (max-width: 900px) {
+
+/* Tablet: 601px – 1024px */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .section-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    padding: 0 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.35rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile: até 600px */
+@media (max-width: 600px) {
   .header-content {
     justify-content: space-between;
     gap: 1rem;
@@ -368,17 +393,30 @@ body {
   .nav-links.show {
     right: 0;
   }
-}
 
-/* ===========================
-   RESPONSIVIDADE MÓVEL CARD
-=========================== */
-@media (max-width: 600px) {
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+
   .card h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
   .card p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 0 1rem;
+  }
+
+  .cta {
+    padding: 0 1rem;
+  }
+
+  .footer {
+    padding: 2rem 1rem;
   }
 }
