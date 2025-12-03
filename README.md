@@ -1,1 +1,1 @@
-# -central-de-investidores
+# central-de-investidores
